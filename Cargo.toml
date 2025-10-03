@@ -1,0 +1,9 @@
+[package]
+name = "shorten_video_tool"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eframe = { version = "0.32.3", features = ["default"] }
+mp4 = "0.14.0"
+rfd = "0.15.4"
