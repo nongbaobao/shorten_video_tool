@@ -1,4 +1,4 @@
-use std::{fs::File, io::BufReader, path::Path, process};
+use std::{fmt::format, fs::File, io::BufReader, path::Path, process};
 
 /// Get the duration of a video file in seconds
 pub fn get_video_duration(file_path: &str) -> Result<u64, Box<dyn std::error::Error>> {
@@ -22,7 +22,7 @@ pub fn shorten_video(
     let parent_dir = original_path.parent().unwrap_or_else(|| Path::new("."));
 
     // Build the full output path
-    let output_path = parent_dir.join(output_name);
+    let output_path = parent_dir.join(format!("{}{}", output_name, ".mp4"));
     let output_path_str = output_path
         .to_str()
         .ok_or("Invalid output path: contains invalid UTF-8")?;

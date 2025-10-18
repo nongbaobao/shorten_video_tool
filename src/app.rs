@@ -1,3 +1,5 @@
+use std::fmt::format;
+
 use eframe::{egui, emath::Numeric};
 
 use crate::video;
@@ -56,7 +58,7 @@ impl eframe::App for MyApp {
                     }
 
                     ui.horizontal(|ui| {
-                        ui.label("Output filename: ");
+                        ui.label("Output filename (mp4 default): ");
                         ui.text_edit_singleline(&mut self.output_filename);
                     });
 
@@ -67,8 +69,9 @@ impl eframe::App for MyApp {
                             .unwrap_or_else(|| std::path::Path::new("."))
                             .join(&self.output_filename);
                         ui.label(format!(
-                            "Output will be saved to: {}",
-                            output_path.display()
+                            "Output will be saved to: {}{}",
+                            output_path.display(),
+                            ".mp4"
                         ));
                     }
 
