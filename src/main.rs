@@ -2,8 +2,8 @@
 
 use eframe::egui;
 
-mod my_app;
-mod video_util;
+mod app;
+mod video;
 
 fn main() -> eframe::Result {
     let options = eframe::NativeOptions {
@@ -13,6 +13,6 @@ fn main() -> eframe::Result {
     eframe::run_native(
         "Shorten Video Tool",
         options,
-        Box::new(|_| Ok(Box::<my_app::MyApp>::default())),
+        Box::new(|_| Ok(Box::<app::MyApp>::default())),
     )
 }
